@@ -9,19 +9,25 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://landing-page-uni-gig.vercel.app/",
+    methods: ["GET", "POST"],
+  })
+);
 app.use(express.json());
 
 // Routes
 app.use("/api", waitlistRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log("MongoDB connected");
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-})
-.catch(err => console.error(err));
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB connected");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch((err) => console.error(err));
