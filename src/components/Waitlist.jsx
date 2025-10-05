@@ -18,7 +18,7 @@ const Waitlist = () => {
     setMessage("");
 
     try {
-      const res = await fetch("https://landing-page-unigig-server.onrender.com/waitinglist/join", {
+      const res = await fetch("https://landing-page-unigig-server.onrender.com/api/waitinglist/join", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
