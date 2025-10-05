@@ -9,7 +9,6 @@ function App() {
       <div className="flex flex-col">
         <HeroSection />
         <Waitlist />
-        <HypeSection />
         <HiringForm />
         <Footer />
       </div>
