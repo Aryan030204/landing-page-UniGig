@@ -14,8 +14,8 @@ const socialLinks = [
     icon: <LinkedinIcon />,
   },
   {
-    name: "Facebook",
-    link: "/",
+    name: "Instagram",
+    link: "https://www.instagram.com/uni.gig/",
     icon: <Instagram />,
   },
   {
