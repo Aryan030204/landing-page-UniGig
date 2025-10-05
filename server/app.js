@@ -11,8 +11,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(
   cors({
-    origin: "https://landing-page-uni-gig.vercel.app/",
+    origin: "https://landing-page-uni-gig.vercel.app", // remove trailing slash
     methods: ["GET", "POST"],
+    credentials: true, // if you plan to send cookies
   })
 );
 app.use(express.json());
