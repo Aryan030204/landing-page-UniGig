@@ -1,7 +1,6 @@
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import HiringForm from "./components/HiringForm";
-import HypeSection from "./components/HypeSection";
 import Waitlist from "./components/Waitlist";
 
 function App() {
