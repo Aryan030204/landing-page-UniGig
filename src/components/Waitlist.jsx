@@ -13,21 +13,15 @@ const Waitlist = () => {
       setMessage("Please fill in all fields.");
       return;
     }
-
     setLoading(true);
     setMessage("");
-
     try {
       const res = await fetch("https://landing-page-unigig-server.onrender.com/api/waitinglist/join", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, education }),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         setMessage("You’ve been added to the waitlist! 🎉");
         setName("");
@@ -45,14 +39,17 @@ const Waitlist = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white py-16 px-6 md:px-16 lg:px-32">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+    // Adjusted vertical padding for better balance on mobile
+    <div className="bg-gray-900 text-white py-12 lg:py-16 px-6 md:px-16 lg:px-32">
+      {/* Made the gap responsive for better spacing when stacked vertically */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
         {/* Left Section */}
         <div className="flex-1 flex flex-col justify-center">
-          <h2 className="text-4xl lg:text-left text-center md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl lg:text-left text-center md:text-5xl font-bold mb-4">
             A place where everything changes for students
           </h2>
-          <p className="text-gray-300 lg:text-left text-center mt-3 text-md">
+          {/* Corrected `text-md` to a standard class and made it responsive */}
+          <p className="text-gray-300 lg:text-left text-center mt-3 text-base lg:text-lg">
             Not a class. Not a club. Not a job. Yet it will transform the way
             you experience student life. See it before the story reaches
             everyone else.
@@ -60,7 +57,8 @@ const Waitlist = () => {
         </div>
 
         {/* Right Section - Form */}
-        <div className="flex-1 bg-white text-gray-900 rounded-xl p-8 shadow-lg">
+        {/* Adjusted padding inside the form card for smaller screens */}
+        <div className="flex-1 w-full bg-white text-gray-900 rounded-xl p-6 md:p-8 shadow-lg">
           <h3 className="text-2xl font-bold mb-4">
             Reserve your seat for beta launch
           </h3>
@@ -116,7 +114,7 @@ const Waitlist = () => {
 
             {message && (
               <p
-                className={`mt-2 ${
+                className={`mt-2 text-center ${
                   message.includes("added") ? "text-green-500" : "text-red-500"
                 }`}
               >

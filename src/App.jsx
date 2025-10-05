@@ -7,7 +7,7 @@ import Waitlist from "./components/Waitlist";
 function App() {
   return (
     <>
-      <div className="h-fit flex flex-col">
+      <div className="flex flex-col">
         <HeroSection />
         <Waitlist />
         <HypeSection />
