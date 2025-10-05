@@ -11,7 +11,7 @@ const HeroSection = () => {
             A hub for Students, and only students. <br /> Learn, earn, and grow
             — one gig at a time.
           </p>
-          <p className="font-bold text-md lg:text-lg text-white text-center w-[35rem] lg:w-1/2">
+          <p className="font-bold sm:text-sm text-md lg:text-lg text-white text-center w-[35rem] lg:w-1/2">
             A new platform for students is emerging… one that mixes opportunity,
             creativity, and a little bit of mystery. UniGig isn’t revealing all
             its secrets yet, but soon, it will redefine how students
