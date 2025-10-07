@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Waitlist = () => {
   const [name, setName] = useState("");
@@ -16,11 +17,14 @@ const Waitlist = () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch("https://landing-page-unigig-server.onrender.com/api/waitinglist/join", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, education }),
-      });
+      const res = await fetch(
+        "https://landing-page-unigig-server.onrender.com/api/waitinglist/join",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, education }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         setMessage("You’ve been added to the waitlist! 🎉");
@@ -104,13 +108,14 @@ const Waitlist = () => {
               </select>
             </div>
 
-            <button
+            <Link
+              to="https://docs.google.com/forms/d/e/1FAIpQLSds9ag-PGRogH4Tq8AAiOUaicJMjKqLxAplki3F4qsdq2fgiw/viewform?usp=header"
               type="submit"
               disabled={loading}
-              className="bg-purple-800 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
+              className=" text-center bg-purple-800 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
             >
               {loading ? "Joining..." : "Join"}
-            </button>
+            </Link>
 
             {message && (
               <p
